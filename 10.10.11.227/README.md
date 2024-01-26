@@ -133,7 +133,9 @@ ls cat root.txt
 
 
  <p align="center">
-  <img src="https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/2f2ae09a-71f7-4895-b5eb-4008a5e7d69e" align="center" alt="keeper-htb" />
+   <a href="https://www.hackthebox.com/achievement/machine/672066/556" >
+      <img src="https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/2f2ae09a-71f7-4895-b5eb-4008a5e7d69e" align="center" alt="keeper-htb" />
+   </a>
 </p>
   
 # Conclusion:ss
