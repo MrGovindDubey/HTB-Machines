@@ -1,7 +1,8 @@
 # Unlocking the Secrets of Keeper: A Journey to Root Access
 
-![keeper-htb ](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/274cad23-f3e3-4ac9-b9a0-b2b6539d214e)
-
+<p align="center">
+  <img src="https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/274cad23-f3e3-4ac9-b9a0-b2b6539d214e" align="center" alt="keeper-htb" />
+</p>
 
 
 ## Introduction
