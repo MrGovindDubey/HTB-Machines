@@ -52,7 +52,7 @@ ls cat user.txt
 ```
 
 ## Step 7: The CVE and Keepass
-Discover a critical CVE and grab the exploit from the following link: CVE Link. Download it to your local machine.
+Discover a critical CVE and grab the exploit from the following link: [CVE-2023-32784(poc.py)](10.10.11.227/poc.py). Download it to your local machine.
 
 ## Step 8: Moving Files
 To transfer files between your local machine and the HTB machine, you can use netcat. Run the following commands:
@@ -119,5 +119,18 @@ Discover the root flag:
 ls cat root.txt
 ```
 
+<hr><ht/>
+
+  # CVE-2023-32784 
+  ___KeePass2 Master Password Dumper (CVE-2023-32784)___
+
+  This is a CVE-2023-32784 proof-of-concept implemented in Rust. The code is probably ugly due to my poor coding skills, feel free to make a PR to improve it.
+
+
+  CVE-Credit:vdohney
+<hr><ht/>
+
+
+  
 # Conclusion:
 Our experience in conquering the Keeper HTB machine was not only exciting but also educational. We trust that this guide has illuminated the path of ethical hacking, spanning from the initial reconnaissance phase to achieving root access. Always bear in mind that ethical hacking is a journey of learning, self-challenge, and continuous enhancement of your cybersecurity skills. Happy hacking!
