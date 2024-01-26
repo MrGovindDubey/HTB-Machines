@@ -1,5 +1,9 @@
 # Unlocking the Secrets of Keeper: A Journey to Root Access
 
+![keeper-htb ](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/274cad23-f3e3-4ac9-b9a0-b2b6539d214e)
+
+
+
 ## Introduction
 
 In the exhilarating realm of ethical hacking, each machine encountered on platforms like Hack The Box presents fresh challenges and captivating discoveries. Keeper, an enigmatic HTB machine, follows suit. This guide will lead you through a systematic journey to conquer Keeper, navigating from the initial foothold to securing the coveted root flag. So, equip your virtual backpack, don your ethical hacker hat, and let's plunge into the adventure!
