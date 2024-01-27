@@ -1,4 +1,6 @@
-# Decoding the Cyber Maze: Metabase Pre-Authentication RCE in 'Analytics Machine"
+# Decoding the Cyber Maze: Metabase Pre-Authentication RCE in 'Analytics Machine'.
+
+![Analytics by Mr  Govind Dubey ](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/5389b04e-7de8-4994-ac76-e5dbc4d79727)
 
 ## Introduction
 
