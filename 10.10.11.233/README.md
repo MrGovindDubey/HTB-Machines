@@ -1,6 +1,10 @@
 # Decoding the Cyber Maze: Metabase Pre-Authentication RCE in 'Analytics Machine'.
 
-![Analytics by Mr  Govind Dubey ](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/5389b04e-7de8-4994-ac76-e5dbc4d79727)
+<p align="center">
+   <a href="https://github.com/MrGovindDubey/HTB-Machines/edit/Master/10.10.11.233" >
+  <img src="https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/5389b04e-7de8-4994-ac76-e5dbc4d79727" align="center" alt="keeper-htb" />
+   <a/>
+</p>
 
 ## Introduction
 
@@ -153,6 +157,28 @@ root
 root@analytics:/tmp# cat ../../root/root.txt
 
 ```
+<hr>
+</hr>
 
-![Analytics pawnd by Mr  Govind Dubey ](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/f05df61a-7e3f-4a05-afd4-26fa1a3c11f3)
+# CVE-2023-38646 
+Metabase open source before 0.46.6.1 and Metabase Enterprise before 1.46.6.1 allow attackers to execute arbitrary commands on the server, at the server's privilege level. Authentication is not required for exploitation.
+
+[Metasploit -  Metabase Setup Token RCE](https://www.rapid7.com/db/modules/exploit/linux/http/metabase_setup_token_rce/"@embed")
+
+
+
+<p align="center">
+   <a href="https://www.hackthebox.com/achievement/machine/672066/569" >
+  <img src="https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/f05df61a-7e3f-4a05-afd4-26fa1a3c11f3" align="center" alt="Analytics-htb pwnd by Mr.Govind" />
+   <a/>
+</p>
+
+
+<hr>
+</hr>
+
+## Conclusion
+The traversal from the initial discovery of a Metabase vulnerability to obtaining root privileges underscores the imperative nature of fortifying systems against pre-authentication RCEs. This exploit serves as a vivid illustration of the pressing need for vigilant monitoring, prompt patching, and proactive security measures to mitigate potential risks.
+
+The cybersecurity landscape is a complex maze, and this expedition exemplifies the importance of continuous vigilance, collaboration, and adherence to best practices in safeguarding against evolving threats.
 
