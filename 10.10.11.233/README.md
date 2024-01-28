@@ -35,7 +35,7 @@ Subdomain : _data.analytical.htb_
 <img src="https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/e12f739c-49df-4e89-a1c3-a4a3f8056638" width="800" alt="Metabase admin page - Mr  Govind Dubey" />
 
 ## discovered an exploit within metasploit
-While scouring the internet for details on Metabase exploits, I stumbled upon this information and grasped the underlying vulnerability gives us CVE-2023-38646 ( Chaining our way to Pre-Auth RCE in Metabase ) . 
+While scouring the internet for details on Metabase exploits, I stumbled upon this information and grasped the underlying vulnerability gives us [CVE-2023-38646](#CVE-2023-38646) ( Chaining our way to Pre-Auth RCE in Metabase ) . 
 
 
 ```bash
