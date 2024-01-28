@@ -29,12 +29,10 @@ PORT     STATE    SERVICE
 ## Found a login page there
 The website has a login page which goes to the _data.analytical.htb_ subdomain. This login page is using Metabase.
 
-![Analytics _Web_Page by Mr  Govind Dubey  ](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/3c7d5d8f-21e4-40ee-920c-f94f50533d8a)
-
+<img src="https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/3c7d5d8f-21e4-40ee-920c-f94f50533d8a" width="800" alt="Analytics _Web_Page by Mr  Govind Dubey" />]
 
 Subdomain : _data.analytical.htb_
-![Metabase admin page - Mr  Govind Dubey ](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/e12f739c-49df-4e89-a1c3-a4a3f8056638)
-
+<img src="https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/e12f739c-49df-4e89-a1c3-a4a3f8056638" width="800" alt="Metabase admin page - Mr  Govind Dubey" />
 
 ## discovered an exploit within metasploit
 While scouring the internet for details on Metabase exploits, I stumbled upon this information and grasped the underlying vulnerability gives us CVE-2023-38646 ( Chaining our way to Pre-Auth RCE in Metabase ) . 
