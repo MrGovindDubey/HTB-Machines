@@ -14,7 +14,7 @@ Brace yourselves for a deep dive into the captivating realm of machine "analytic
 An Nmap scan reveals a website at analytical.htb:
 
 ```bash
-┌──(yury㉿kali)-[~/Documents/htb/analytics/CVE-2023-38646]
+┌──(root㉿Parrot)-[~/Documents/htb/analytics/CVE-2023-38646]
 └─$ nmap analytical.htb
 Starting Nmap 7.94 ( https://nmap.org ) at 2023-10-15 04:21 PDT
 Nmap scan report for analytical.htb (10.10.11.233)
