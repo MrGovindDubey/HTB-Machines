@@ -38,13 +38,18 @@ After doing directory enumeration we see there directory of /control/login
 
 _There Vulnerability of ofbiz-CVE-2023–49070-RCE-POC_
 
-Link of exploitation: — https://github.com/abdoghazy2015/ofbiz-CVE-2023-49070-RCE-POC/tree/main?tab=readme-ov-file
+- Link of exploitation: — https://github.com/abdoghazy2015/ofbiz-CVE-2023-49070-RCE-POC/tree/main?tab=readme-ov-file
 
 
 ```bash
 sudo update-alternatives — config java
 
 use “ 1 /usr/lib/jvm/java-11-openjdk-amd64/bin/java 1111 manual mode”
+```
+
+Further exploration revealed....
+```bash
+wget https://github.com/frohoff/ysoserial/releases/download/v0.0.6/ysoserial-all.jar
 ```
 
 
