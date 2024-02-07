@@ -106,5 +106,11 @@ Execute this Python script to decode the SHA-1 hash.
 
 ```bash
 $SHA$d$uP0_QaVBpDWFeo8-dRzDqRwXQ2IYNN
+```
 
 
+<p align="center">
+   <a href="https://www.hackthebox.com/achievement/machine/672066/582" >
+  <img src="https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/6c750e80-d65b-4a0b-91f2-d67192dffee9" align="center" alt="Bizness-htb pwnd by Mr.Govind" />
+   <a/>
+</p>
