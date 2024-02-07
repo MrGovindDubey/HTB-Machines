@@ -133,6 +133,17 @@ cat root.txt
 41b08f62f103ded31455f3f3a8be5cde
 
 ```
+
+ <hr>
+ </hr>
+
+## CVE-2023-49070
+
+ Pre-auth RCE in Apache Ofbiz 18.12.09. It's due to XML-RPC no longer maintained still present. This issue affects Apache OFBiz: before 18.12.10.  Users are recommended to upgrade to version 18.12.10
+
+ Reference :  
+ - https://nvd.nist.gov/vuln/detail/CVE-2023-49070
+ - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-49070
  
 
 <p align="center">
