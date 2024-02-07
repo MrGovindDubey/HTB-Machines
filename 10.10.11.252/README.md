@@ -107,7 +107,33 @@ Execute this Python script to decode the SHA-1 hash.
 ```bash
 $SHA$d$uP0_QaVBpDWFeo8-dRzDqRwXQ2IYNN
 ```
+```bash
+python3 decode.py
+```
 
+After successfully decoding the SHA-1 hash with the provided Python script, the revelation of the password 'monkeybizness' marks a pivotal moment in our journey. Leveraging this newfound credential, we elevate our privileges by executing 'su' and entering the passphrase. Transitioning into the root directory, we discover the existence of a file named 'root.txt.' As we delve into its contents, the triumphant sight of the root flag brings our exploration to a gratifying conclusion. This process underscores the significance of careful navigation and strategic execution in the realm of privilege escalation, culminating in the attainment of the ultimate access level .
+
+```bash
+password :  'monkeybizness'
+```
+
+cat root.txt you will get root password.
+```
+
+ofbiz@bizness:~$ su root
+su root
+Password: monkeybizness
+
+ls
+user.txt
+cd /root
+ls
+root.txt
+cat root.txt
+41b08f62f103ded31455f3f3a8be5cde
+
+```
+ 
 
 <p align="center">
    <a href="https://www.hackthebox.com/achievement/machine/672066/582" >
