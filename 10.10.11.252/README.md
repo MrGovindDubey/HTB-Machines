@@ -9,6 +9,19 @@
 
 Embrace the dawn of a fresh season as we unveil the latest additions to the gaming arena. Welcome to the exhilarating Season 4, where innovation and excitement collide. Leading the charge is the formidable Bizness, a dynamic machine that promises both challenge and reward. Boasting a lucrative 20-point bounty and an accessible easy difficulty level, Bizness beckons all daring adventurers. Without further ado, let's dive headfirst into the world of opportunities and embark on a thrilling journey – it's time to engage in some serious 'bizness'!
 
+## Table of Contents
+
+- [Setting the Stage](#setting-the-stage)
+- [Enumeration with Nmap](#enumeration-with-nmap)
+- [Exploring the Vast Horizons of the Web](#exploring-the-vast-horizons-of-the-web)
+- [Art of Exploitation: Navigating Security Challenges](#art-of-exploitation-navigating-security-challenges)
+- [User Flag](#user-flag)
+- [Privilege Escalation: Elevating System Access Safely](#privilege-escalation-elevating-system-access-safely)
+- [CVE-2023-49070](#cve-2023-49070)
+- [Conclusion](#conclusion)
+
+
+
 
 ## Setting the Stage 
 Before delving into the intricacies, our initial step involves the addition of the IP and domain to the crucial /etc/hosts file. This crucial setup ensures that the IP is recognized, laying the foundation for seamless interactions. Execute the command 'sudo nano /etc/hosts' to initiate this imperative configuration.
@@ -107,6 +120,7 @@ Upon investigation, we uncovered the Derby database and a hash: '$SHA$d$uP0_QaVB
 ## Privilege Escalation: Elevating System Access Safely 
 
 Execute this Python script to decode the SHA-1 hash.
+Decode File Required : [Decode.py](10.10.11.252/decode.py)
 
 ```bash
 $SHA$d$uP0_QaVBpDWFeo8-dRzDqRwXQ2IYNN
