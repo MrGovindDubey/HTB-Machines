@@ -24,6 +24,7 @@ Nmap serves as the indispensable compass, unveiling the intricacies of system ar
 nmap -Pn -sC -sV 10.10.11.252
 ```
 As we initiate enumeration, a preliminary port scan discloses the accessibility of ports 22, 80, and 443.
+![Bizness](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/2e2cdf84-96c0-453e-acf2-083c71d1a947)
 
 
 ## Exploring the Vast Horizons of the Web .
@@ -37,9 +38,12 @@ dirsearch -u https://bizness.htb -e*
 After using dirsearch we get login endpoints.
 
 After doing directory enumeration we see there directory of /control/login 
+![Bizness Login](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/681a5c2c-5923-4f93-9446-aaf5add44414)
+
 
 ## Art of Exploitation: Navigating Security Challenges :
 "Upon entering the login page, it becomes evident that the system employs the Apache OFBiz web framework. Subsequent investigation yielded the following insights."
+
 
 
 _There Vulnerability of ofbiz-CVE-2023–49070-RCE-POC_
