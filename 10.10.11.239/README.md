@@ -247,3 +247,61 @@ The entire process of privilege escalation facilitated a seamless transition fro
 ## Root-Level Privilege Escalation
 
 Following the transition to the "joshua" user, my exploration persisted as I actively sought additional opportunities for privilege escalation. This quest aimed to further elevate access within the system.
+
+The most challenging phase for me was when I had to temporarily step away from my computer and return the next day with a refreshed mindset.
+
+Initially, I employed the LinEnum script to obtain a broad understanding and subsequently applied appropriate tactics to attain root access. However, I encountered a misleading outcome as the script returned a docker container launched as root. This led me to invest time in searching for privilege escalation tactics within the docker container. It was only later that I realized neither the user "joshua" nor the user "svc" belonged to a docker group, prompting me to abandon this approach.
+
+```bash
+joshua@codify:/opt/scripts$ sudo -l
+
+User joshua may run the following commands on codify:
+    (root) /opt/scripts/mysql-backup.sh
+```
+
+### Reviewing /opt/scripts/mysql-backup.sh
+
+```bash
+
+#!/bin/bash
+DB_USER="root"
+DB_PASS=$(/usr/bin/cat /root/.creds)
+BACKUP_DIR="/var/backups/mysql"
+
+read -s -p "Enter MySQL password for $DB_USER: " USER_PASS
+/usr/bin/echo
+
+if [[ $DB_PASS == $USER_PASS ]]; then
+        /usr/bin/echo "Password confirmed!"
+else
+        /usr/bin/echo "Password confirmation failed!"
+        exit 1
+fi
+
+/usr/bin/mkdir -p "$BACKUP_DIR"
+
+databases=$(/usr/bin/mysql -u "$DB_USER" -h 0.0.0.0 -P 3306 -p"$DB_PASS" -e "SHOW DATABASES;" | /usr/bin/grep -Ev "(Database|information_schema|performance_schema)")
+
+for db in $databases; do
+    /usr/bin/echo "Backing up database: $db"
+    /usr/bin/mysqldump --force -u "$DB_USER" -h 0.0.0.0 -P 3306 -p"$DB_PASS" "$db" | /usr/bin/gzip > "$BACKUP_DIR/$db.sql.gz"
+done
+
+/usr/bin/echo "All databases backed up successfully!"
+/usr/bin/echo "Changing the permissions"
+/usr/bin/chown root:sys-adm "$BACKUP_DIR"
+/usr/bin/chmod 774 -R "$BACKUP_DIR"
+/usr/bin/echo 'Done!'
+
+```
+
+The vulnerability in the script stems from the way it manages password confirmation:
+
+```bash
+if [[ $DB_PASS == $USER_PASS ]]; then
+    /usr/bin/echo "Password confirmed!"
+else
+    /usr/bin/echo "Password confirmation failed!"
+    exit 1
+fi
+```
