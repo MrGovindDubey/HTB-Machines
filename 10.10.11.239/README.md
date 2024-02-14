@@ -394,7 +394,18 @@ __Refernce : https://nvd.nist.gov/vuln/detail/CVE-2023-30547__
 </p>
 
 
+<hr>
+</hr>
 
+# Conclusion :
+
+The Codify box on HackTheBox provided an immersive and instructive learning experience, showcasing a diverse array of advanced techniques including sandbox escape, password cracking, script analysis, brute forcing, and the strategic chaining of multiple privilege escalation vectors.
+
+The initial breach involved exploiting a sandbox escape within the web application's isolated NodeJS code runner, granting access to the system. Subsequent thorough enumeration uncovered a password hash, facilitating the escalation of privileges from the initially compromised low-privileged svc user to the user joshua.
+
+The critical juncture in the exploitation process emerged with the identification of a vulnerable MySQL backup script. This vulnerability was exploited through meticulous manipulation of its weak password comparison logic. Crafting a precise exploit to gradually unveil the script's admin password resulted in the attainment of root access, thereby establishing complete control over the system.
+
+Boxes like Codify underscore the significance of adopting a comprehensive approach that spans various domains, including web applications, databases, scripts, authentication mechanisms, and system administration. Developers are tasked with securing every layer, whereas malicious actors only need to identify a single oversight. This accentuates the imperative nature of meticulous enumeration, lateral thinking, and the strategic application of multiple techniques for individuals aspiring to excel in ethical hacking.
 
 
 
