@@ -377,6 +377,22 @@ root@codify:/tmp# cat ~/root.txt
 
 ```
 
+<hr>
+</hr>
+
+
+# CVE-2023-30547
+
+vm2 is a sandbox that can run untrusted code with whitelisted Node's built-in modules. There exists a vulnerability in exception sanitization of vm2 for versions up to 3.9.16, allowing attackers to raise an unsanitized host exception inside `handleException()` which can be used to escape the sandbox and run arbitrary code in host context. This vulnerability was patched in the release of version `3.9.17` of `vm2`. There are no known workarounds for this vulnerability. Users are advised to upgrade.
+
+__Refernce : https://nvd.nist.gov/vuln/detail/CVE-2023-30547__
+
+<p align="center">
+   <a href="https://www.hackthebox.com/achievement/machine/672066/574" >
+  <img src="https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/5573ddf6-f045-4d1f-aa4a-5dff8cbea8b2" align="center" alt="Codify-htb pwnd by Mr.Govind" />
+   <a/>
+</p>
+
 
 
 
