@@ -14,3 +14,14 @@ The Surveillance machine on Hack The Box presented a challenging learning opport
 The privilege escalation involved MySQL credentials, "zoneminder" configurations, and a version-specific exploit using Metasploit. Despite challenges, a method to escalate privileges to root was found by manipulating the "user" parameter in zmupdate.pl. The write-up underscores the importance of thorough reconnaissance, exploit analysis, and creative problem-solving in successfully navigating the complexities of the Surveillance machine on HTB.
 
 
+## Ennumiration :
+
+We start with simple port & services scan and got two standard ports. When we access the web page, it has a specific CMS.
+
+```bash
+nmap -p- -T4 -A -sV 10.10.11.245
+```
+
+Because HTTP is an open protocol, we can verify whether a webpage can be seen in a web browser.
+
+
