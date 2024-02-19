@@ -98,3 +98,17 @@ I extracted the contents of the file and examined them to locate specific creden
 To discern the hashing algorithm employed for Matthew's password, I employed Hash-Identifier. The analysis suggests that the hash might have been generated using SHA-256.
 
 
+### Password:
+Subsequently, I appended the hashed password to a text file and employed hashcat to initiate the password cracking process.
+
+The password cracking operation was successful, and the decrypted password has been obtained.
+
+
+```bash
+
+Username: Matthew
+Password: starcraft122490
+
+```
+
+I attempted it on SSH, and it worked flawlessly
