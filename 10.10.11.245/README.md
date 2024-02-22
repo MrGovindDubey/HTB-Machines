@@ -112,3 +112,53 @@ Password: starcraft122490
 ```
 
 I attempted it on SSH, and it worked flawlessly
+
+
+
+## Root Privilege Escalation : 
+
+I ran LinPEAS from my Python server to investigate credentials.
+
+I came across MySQL credentials that appear to correspond to the database stored in the storage/backups directory.
+
+Subsequently, I uncovered a password associated with something referred to as "zoneminder."
+
+
+
+
+Upon examining the configurations linked to "zoneminder," a deeper dive into research unveiled that Zoneminder is a software primarily designed for monitoring purposes. Given its local storage, the next step involves establishing a port forward using SSH.
+
+
+
+Once logged in, the initial checkpoint is to verify if the content can be displayed locally, a process that should yield results akin to a specific display format.
+
+
+Encountering a roadblock with the default credentials "admin:admin" failing to grant access to the login page, the focus shifts towards identifying the version number. It is discerned as version 1.36.32, serving as a crucial reference point in the pursuit of potential exploits.
+
+
+
+An available Proof of Concept (PoC) exploit for Zoneminder is explored, yet attempts to establish a connection after sending the payload prove futile.
+
+
+
+Metasploit presents an exploit pertaining to snapshots in Zoneminder. Curiously, while the Metasploit script successfully executes, the accompanying Proof of Concept (PoC) falls short, introducing an unusual complication.
+
+
+
+To explore potential avenues for privilege escalation, the `sudo -l` command is invoked. Subsequently, a stable shell is spawned using Python to navigate the system.
+
+
+
+After scouring online resources, a method for escalating privileges to root is uncovered. This involves manipulating the "user" parameter within `zmupdate.pl` to input a file directory instead of a user, integrating the previously discovered password. This modified configuration is employed to execute a reverse shell script, subsequently transferred via the Python server using `wget`.
+
+
+
+Essential to the execution of the script is the incorporation of Busybox to access the `netcat` command. Placement of the required components is flexible, but adherence to good practice recommends housing them in the `tmp` folder.
+
+
+
+Preparation of the attacker to listen on specified ports is undertaken diligently.
+
+
+
+Finally, the meticulously configured script is executed, paving the way for further exploration and potential actions within the system.
