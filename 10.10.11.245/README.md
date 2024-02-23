@@ -49,7 +49,7 @@ This Gist provides a Proof-of-Concept (POC) for CVE-2023-41892, a Craft CMS vuln
 
 CVE-2023-41892 is a security vulnerability discovered in Craft CMS, a popular content management system. Craft CMS versions affected by this vulnerability allow attackers to execute arbitrary code remotely, potentially compromising the security and integrity of the application.
 
-POC GIST-  https://gist.githubusercontent.com/to016/b796ca3275fa11b5ab9594b1522f7226/raw/4742df53be0584c68d6f7550224948fc6709fea9/CVE-2023-41892-POC.md
+POC-  https://raw.githubusercontent.com/MrGovindDubey/HTB-Machines/Master/10.10.11.245/poc.py?token=GHSAT0AAAAAACHXKJYFWLBRMVD3Q3QPV74OZOY4YUQ
 
 You need to edit this part of the script for it to work.
 
@@ -173,8 +173,15 @@ Finally, the meticulously configured script is executed, paving the way for furt
 Craft CMS serves as a platform for building digital experiences. A high-impact, low-complexity attack vector has been identified. Users utilizing Craft installations prior to version 4.4.15 are advised to update to at least this version to address the issue. The problem has been resolved in Craft CMS 4.4.15.
 
 POC -  This POC is depending on writing webshell, so finding a suitable folder with writable permission is necessary. 
-__Code__ :  
 
+__Code__ :  https://raw.githubusercontent.com/MrGovindDubey/HTB-Machines/Master/10.10.11.245/poc.py?token=GHSAT0AAAAAACHXKJYFWLBRMVD3Q3QPV74OZOY4YUQ
+
+_Reference:_ 
+- https://nvd.nist.gov/vuln/detail/CVE-2023-41892
+- https://gist.github.com/to016/b796ca3275fa11b5ab9594b1522f7226
+
+<hr>
+</hr>
 
 # Conclusion, 
 
