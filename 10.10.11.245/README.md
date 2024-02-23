@@ -162,3 +162,14 @@ Preparation of the attacker to listen on specified ports is undertaken diligentl
 
 
 Finally, the meticulously configured script is executed, paving the way for further exploration and potential actions within the system.
+
+
+
+<h>
+</h>
+
+## Conclusion, 
+
+The Surveillance machine on Hack The Box provided a valuable learning experience in penetration testing. The journey involved thorough enumeration, exploitation of Craft CMS vulnerabilities, and overcoming unexpected challenges in privilege escalation. The  highlights the importance of continuous learning, adaptability, and creative problem-solving in cybersecurity. Overall, the experience served as a practical lesson in real-world scenarios, refining essential skills for effective ethical hacking practices.
+
+
