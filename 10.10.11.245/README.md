@@ -165,10 +165,18 @@ Finally, the meticulously configured script is executed, paving the way for furt
 
 
 
-<h>
-</h>
+<hr>
+</hr>
 
-## Conclusion, 
+## CVE-2023-41892 :
+
+Craft CMS serves as a platform for building digital experiences. A high-impact, low-complexity attack vector has been identified. Users utilizing Craft installations prior to version 4.4.15 are advised to update to at least this version to address the issue. The problem has been resolved in Craft CMS 4.4.15.
+
+POC -  This POC is depending on writing webshell, so finding a suitable folder with writable permission is necessary. 
+__Code__ :  
+
+
+# Conclusion, 
 
 The Surveillance machine on Hack The Box provided a valuable learning experience in penetration testing. The journey involved thorough enumeration, exploitation of Craft CMS vulnerabilities, and overcoming unexpected challenges in privilege escalation. The  highlights the importance of continuous learning, adaptability, and creative problem-solving in cybersecurity. Overall, the experience served as a practical lesson in real-world scenarios, refining essential skills for effective ethical hacking practices.
 
