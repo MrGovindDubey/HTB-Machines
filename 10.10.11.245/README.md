@@ -27,7 +27,12 @@ Because HTTP is an open protocol, we can verify whether a webpage can be seen in
 ```bash
 sudo echo "10.10.11.245 surveillance" >> /etc/hosts
 ```
+![Surveillance Writeup _ HackTheBox _ by Mr  Govind Dubey](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/eae1e107-ffdd-4f15-88f6-c358064cc262)
+
+
+
 The website appears to be experiencing difficulty locating the site. In such instances, you can resolve the issue by adding the IP and DNS name to the /etc/hosts file.
+
 
 ## Enumerating Directories
 
@@ -40,6 +45,9 @@ I’ve obtained access to an admin login, and it’s running on Craft CMS.
 
 I examined the source code of surveillance.htb/index.php and determined the version it is running.
 
+![Surveillance by Mr  Govind Dubey](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/53b9a349-66c8-4481-b8bc-437f72a02c15)
+
+
 Upon researching the version online, I discovered a proof of concept for Remote Code Execution (RCE).
 
 ## Exploit :
@@ -50,6 +58,7 @@ This Gist provides a Proof-of-Concept (POC) for CVE-2023-41892, a Craft CMS vuln
 CVE-2023-41892 is a security vulnerability discovered in Craft CMS, a popular content management system. Craft CMS versions affected by this vulnerability allow attackers to execute arbitrary code remotely, potentially compromising the security and integrity of the application.
 
 POC-  https://raw.githubusercontent.com/MrGovindDubey/HTB-Machines/Master/10.10.11.245/poc.py?token=GHSAT0AAAAAACHXKJYFWLBRMVD3Q3QPV74OZOY4YUQ
+
 
 You need to edit this part of the script for it to work.
 
@@ -62,6 +71,9 @@ It should get you a shell.
 ```bash 
 python3 POC.py http://surveillance.htb/
 ```
+![poc by Mr  Govind Dubey](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/41baf85d-d92f-4bdb-8004-76a80c8e485b)
+
+
 
 After successfully exploit and gaining initial access using the PoC, the subsequent step involves obtaining a secure and robust shell for executing bash commands.
 
@@ -103,6 +115,9 @@ Subsequently, I appended the hashed password to a text file and employed hashcat
 
 The password cracking operation was successful, and the decrypted password has been obtained.
 
+![Surveillance hash by Mr Govind Dubey](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/1c267ba2-12ec-4f9f-b44a-fd6483aa1e07)
+
+
 
 ```bash
 
@@ -113,6 +128,7 @@ Password: starcraft122490
 
 I attempted it on SSH, and it worked flawlessly
 
+![Surveillance ssh by Mr  Govind Dubey ](https://github.com/MrGovindDubey/HTB-Machines/assets/118271775/40b9cbfb-c35a-4207-8e62-f7d4cd130cf1)
 
 
 ## Root Privilege Escalation : 
